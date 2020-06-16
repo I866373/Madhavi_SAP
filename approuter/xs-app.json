@@ -4,5 +4,32 @@
   "logout": {
     "logoutEndpoint": "/do/logout"
   },
-  "routes": []
+  "routes": [
+    {
+      "source": "^/ESPM/(.*)$",
+      "target": "$1",
+      "authenticationType": "none",
+      "destination": "ESPM",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/bpmworkflowruntime/(.*)$",
+      "target": "/$1",
+      "service": "com.sap.bpm.workflow",
+      "endpoint": "workflow_rest_url",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/BusinessRules/(.*)$",
+      "target": "$1",
+      "destination": "BusinessRules",
+      "authenticationType": "none"
+    },
+    {
+      "source": "^(.*)",
+      "target": "$1",
+      "authenticationType": "xsuaa",
+      "service": "html5-apps-repo-rt"
+    }
+  ]
 }

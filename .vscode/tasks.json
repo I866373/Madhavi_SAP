@@ -1,0 +1,13 @@
+{
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "build",
+            "path": "my-app/",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

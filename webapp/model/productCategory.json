@@ -1,0 +1,16 @@
+{
+  "prod": [
+    {
+      "ProductCat": "Mountain Bike",
+      "PID": "L004"
+    },
+    {
+      "ProductCat": "Youth Bike",
+      "PID": "L002"
+    },
+    {
+      "ProductCat": "Bike",
+      "PID": "L001"
+    }
+  ]
+}

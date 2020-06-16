@@ -3,7 +3,7 @@ sap.ui.define([
   "sap/ui/core/routing/History",
   "sap/ui/core/UIComponent",
   "com/mysap/myworkflowUI5/model/formatter"
-], function(Controller, History, UIComponent, formatter) {
+], function (Controller, History, UIComponent, formatter) {
   "use strict";
 
   return Controller.extend("com.mysap.myworkflowUI5.controller.BaseController", {
@@ -16,7 +16,7 @@ sap.ui.define([
      * @param {string} sName the model name
      * @returns {sap.ui.model.Model} the model instance
      */
-    getModel: function(sName) {
+    getModel: function (sName) {
       return this.getView().getModel(sName);
     },
 
@@ -27,7 +27,7 @@ sap.ui.define([
      * @param {string} sName the model name
      * @returns {sap.ui.mvc.View} the view instance
      */
-    setModel: function(oModel, sName) {
+    setModel: function (oModel, sName) {
       return this.getView().setModel(oModel, sName);
     },
 
@@ -36,7 +36,7 @@ sap.ui.define([
      * @public
      * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
      */
-    getResourceBundle: function() {
+    getResourceBundle: function () {
       return this.getOwnerComponent().getModel("i18n").getResourceBundle();
     },
 
@@ -47,21 +47,26 @@ sap.ui.define([
      * @param {mapping} pmParameters? Parameters for navigation
      * @param {boolean} pbReplace? Defines if the hash should be replaced (no browser history entry) or set (browser history entry)
      */
-    navTo: function(psTarget, pmParameters, pbReplace) {
+    navTo: function (psTarget, pmParameters, pbReplace) {
       this.getRouter().navTo(psTarget, pmParameters, pbReplace);
     },
 
-    getRouter: function() {
+    getRouter: function () {
       return UIComponent.getRouterFor(this);
     },
 
-    onNavBack: function() {
-      var sPreviousHash = History.getInstance().getPreviousHash();
+    onNavBack: function () {
+      var oHistory, sPreviousHash;
+
+      oHistory = History.getInstance();
+      sPreviousHash = oHistory.getPreviousHash();
+      // var sPreviousHash = History.getInstance().getPreviousHash();
 
       if (sPreviousHash !== undefined) {
-        window.history.back();
+        //  window.history.back();
+        window.history.go(-1);
       } else {
-        this.getRouter().navTo("appHome", {}, true /*no history*/ );
+        this.getRouter().navTo("appHome", {}, true /*no history*/);
       }
     }
 

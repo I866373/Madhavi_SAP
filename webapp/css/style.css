@@ -1,1 +1,16 @@
 /* Enter your custom styles here */
+.comboLabel{
+		    margin-top: 15px;
+		    font-size: 0.975rem;
+}
+.customCellImageBackground {
+	color: #fff;
+	background-image: url("kidsbikesbanner-slimC.jpg");
+	background-size: 100% auto;
+	background-position: 0 80%;
+}
+
+.customCellImageBackground .sapUiBlockCellContent,
+.customCellImageBackground .sapUiBlockCellContent .sapMText {
+	color: #fff;
+}

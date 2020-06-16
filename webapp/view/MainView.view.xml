@@ -4,6 +4,13 @@
       <Page title="Shopping App"
 				titleAlignment="Center">
     <content>
+    	<Carousel class="sapUiContentPadding" loop="true" height="300px">
+		<pages>
+			<Image src="./resources/img/image3.jpg" alt="Example picture of bikes1" backgroundSize="cover"/>
+      <Image src="./resources/img/image2.jpg" alt="Example picture of bikes2" backgroundSize="cover"/>
+       <Image src="./resources/img/image.jpg" alt="Example picture of bikes2" backgroundSize="cover"/>
+		</pages>
+	</Carousel>
   <l:VerticalLayout  width="100%">
 		<fb:FilterBar reset="onReset" search="startProductsList" showRestoreButton="false" showClearButton="false">
 			<fb:filterGroupItems>
