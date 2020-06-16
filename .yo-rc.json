@@ -1,0 +1,12 @@
+{
+  "generator-easy-ui5": {
+    "projectname": "myworkflowUI5",
+    "namespace": "com.mysap",
+    "platform": "Cloud Foundry HTML5 Application Repository",
+    "viewtype": "XML",
+    "viewname": "MainView",
+    "ui5libs": "Content delivery network (OpenUI5)",
+    "newdir": true,
+    "namespaceURI": "com/mysap"
+  }
+}

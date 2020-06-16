@@ -1,0 +1,78 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" controllerName="com.mysap.myworkflowUI5.controller.MainView" height="100%">
+  <App id="idAppControl">
+    <pages>
+      <Page title="Shopping App"
+				titleAlignment="Center">
+    <content>
+  <l:VerticalLayout  width="100%">
+		<fb:FilterBar reset="onReset" search="startProductsList" showRestoreButton="false" showClearButton="false">
+			<fb:filterGroupItems>
+      	<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Product Category" labelTooltip="Please Select a Product" mandatory="true" partOfCurrentVariant="true" visibleInFilterBar="true">
+					<fb:control>
+						<ComboBox id="idComboBox" type="Text">
+							<items>
+							  <core:Item key="ZRETAPRL" text="Apparel"/>
+                <core:Item key="ZYOUTH" text="Youth Bikes"/>
+                <core:Item key="ZRETSUPL" text="Paper Products"/>
+                <core:Item key="ZRETFDBV" text="Smart Water"/>
+							</items>
+						</ComboBox>
+					</fb:control>
+				</fb:FilterGroupItem>
+        </fb:filterGroupItems>
+        </fb:FilterBar>
+  <!-- <Panel width="auto" class="sapUiResponsiveMargin">
+  <FlexBox alignItems="Start" class="sapUiResponsiveMargin">
+    <items>
+    <Label text="Select Product Category:" design="Emphasized" labelFor="idComboBox" class="comboLabel" />
+		<ComboBox id="idComboBox" width="60em" hAlign="Center" tooltip="Please Select a Product Category">
+          <items>
+          <core:Item key="ZRETAPRL" text="Apparel"/>
+          <core:Item key="ZYOUTH" text="Youth Bikes"/>
+          <core:Item key="ZRETSUPL" text="Paper Products"/>
+          <core:Item key="ZRETFDBV" text="Smart Water"/>
+          </items>
+			<core:Item text="{text}" key="{key}"/>
+		</ComboBox>
+    <Button text="Get Products" width="25em" id="__button2" press="startProductsList" hAlign="End" />
+    </items>
+    </FlexBox>
+    </Panel> -->
+  </l:VerticalLayout>
+        <Table id="__idProductsTable" headerText="Products List" items="{/d/results}" growing="true" autoPopinMode="true" contextualWidth="Auto" growingThreshold="10" selectionChange="onItemSelected">
+							<columns>
+								<Column width="14em" >
+									<Text text="{i18n>prod_id}"/>
+								</Column>
+								<Column 	width="8em" >
+									<Text text="Supplier"/>
+								</Column>
+								<Column width="6em" hAlign="Center" >
+									<Text text="{i18n>prod_cat}"/>
+								</Column>
+								<Column width="6%" hAlign="Center" >
+									<Text text="Weight"/>
+								</Column>
+                <Column width="6em" hAlign="End" >
+				          <Text text="Price" />
+		        	</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation" press="onPress">
+									<cells>
+                  <ObjectIdentifier
+						        title="{Name}"
+						        text="{ProductId}"/>
+                    <Text text="{PlantID}"/>
+										<Text text="{ProductGroup}"/>
+										<Text text="{Weight} {WeightUnit}"/>
+										<Text text="{Price} {CurrencyCode}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

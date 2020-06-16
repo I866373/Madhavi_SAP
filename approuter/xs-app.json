@@ -1,0 +1,8 @@
+{
+  "welcomeFile": "commysapmyworkflowUI5/",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": []
+}
