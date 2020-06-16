@@ -1,0 +1,61 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+controllerName="com.mysap.myworkflowUI5.controller.ProductDetails">
+	 <App id="idDetailControl">
+  <semantic:SemanticPage id="page" showNavButton="true" navButtonPress="onNavBack">
+<form:SimpleForm id="ProductDetails"
+			editable="false"
+			layout="ColumnLayout"
+			title="Product Details"
+			columnsM="2"
+			columnsL="2"
+			columnsXL="3"
+			>
+      <form:content>
+      <core:Title text="Product" />
+
+         <Label xmlns="sap.m" text="ProductId"/>
+				 <Text xmlns="sap.m" id="prdid" text="{ProductId} "/>
+         <Label text="ProductName"/>
+				 <Text id="prdname" text="{Name} "/>
+         <Label text="Product Category"/>
+				 <Text id="prdgrp" text="{ProductGroup} "/>
+    <core:Title text="Status" />
+          <Label text="Product Quantity"/>
+				  <Text id="prdwt" text="{QuantityUnit} "/>
+        	<Label text="Plant ID "/>
+					<Text id="prdplntid" text="{PlantID} "/>
+     <core:Title text="Price" />
+        <Label text="Product Price"/>
+					<Text id="prdprice" text="{Price}  {CurrencyCode}"/>
+
+      </form:content>
+</form:SimpleForm>
+
+<!--<form:SimpleForm minWidth="1024" maxContainerCols="4" editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" title="Product Details">
+			<form:content>
+				<VBox alignItems="Start" justifyContent="Center" renderType="List">
+					<Label text="Product Price"/>
+					<Text id="prdprice" text="{Price}  {CurrencyCode}"/>
+					<Label text="ProductName"/>
+					<Text id="prdname" text="{Name} "/>
+					<Label text="Product Quantity"/>
+					<Text id="prdwt" text="{QuantityUnit} "/>
+					<Label text="Plant ID "/>
+					<Text id="prdplntid" text="{PlantID} "/>
+					<Label text="Product Category"/>
+					<Text id="prdgrp" text="{ProductGroup} "/>
+				<items>
+				    <Label xmlns="sap.m" text="ProductId"/>
+				    <Text xmlns="sap.m" id="prdid" text="{ProductId} "/>
+				</items>
+				</VBox>
+			</form:content>
+		</form:SimpleForm> -->
+
+	<semantic:customHeaderContent>
+	    <Button xmlns="sap.m" text="Submit Order" id="SubmitOrder" type="Emphasized" textDirection="LTR" press="startWorkflow"/>
+	</semantic:customHeaderContent>
+	</semantic:SemanticPage>
+  </App>
+</mvc:View>

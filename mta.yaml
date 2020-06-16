@@ -6,47 +6,61 @@ parameters:
   enable-parallel-deployments: true
 
 modules:
- - name: myworkflowUI5
-   type: nodejs
-   path: approuter
-   parameters:
+  - name: myworkflowUI5
+    type: nodejs
+    path: approuter
+    parameters:
       disk-quota: 512M
       memory: 512M
-   requires:
+    requires:
       - name: myworkflowUI5_destination
       - name: myworkflowUI5_uaa
       - name: myworkflowUI5_html5_repo_runtime
- - name: myworkflowUI5_deployer
-   type: com.sap.html5.application-content
-   path: deployer
-   requires:
-     - name: myworkflowUI5_html5_repo_host
-   build-parameters:
-     builder: custom
-     commands:
-       - npm run build:ui --prefix ..
+      - name: BPMWorkflowInstance
+      - name: businessrules
+  - name: myworkflowUI5_deployer
+    type: com.sap.html5.application-content
+    path: deployer
+    requires:
+      - name: myworkflowUI5_html5_repo_host
+      - name: BPMWorkflowInstance
+      - name: businessrules
+    build-parameters:
+      builder: custom
+      commands:
+        - npm run build:ui --prefix ..
 
 resources:
- - name: myworkflowUI5_destination
-   type: org.cloudfoundry.managed-service
-   parameters:
+  - name: myworkflowUI5_destination
+    type: org.cloudfoundry.managed-service
+    parameters:
       service-plan: lite
       service: destination
- - name: myworkflowUI5_uaa
-   type: org.cloudfoundry.managed-service
-   parameters:
-     path: ./xs-security.json
-     service-plan: application
-     service: xsuaa
- - name: myworkflowUI5_html5_repo_runtime
-   type: org.cloudfoundry.managed-service
-   parameters:
+  - name: myworkflowUI5_uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+  - name: myworkflowUI5_html5_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
       service-plan: app-runtime
       service: html5-apps-repo
- - name: myworkflowUI5_html5_repo_host
-   type: org.cloudfoundry.managed-service
-   parameters:
+  - name: myworkflowUI5_html5_repo_host
+    type: org.cloudfoundry.existing-service
+    parameters:
       service-plan: app-host
       service: html5-apps-repo
       config:
         sizeLimit: 5
+  - name: BPMWorkflowInstance
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-plan: standard
+      service: workflow
+  - name: businessrules
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-plan: internal
+      service: business-rules
