@@ -117,10 +117,16 @@ sap.ui.define([
           "X-CSRF-Token": token,
           "Content-Type": "application/json"
         },
+<<<<<<< HEAD
         // success: function (result) {
         success: function () {
           // model.setProperty("/result", JSON.stringify(result, null, 4));
           // alert("Workflow result" + JSON.stringify(result, null, 4));
+=======
+        success: function (result) {
+          // model.setProperty("/result", JSON.stringify(result, null, 4));
+          alert("Workflow result" + JSON.stringify(result, null, 4));
+>>>>>>> e124722dab411cbdf08afba2042b86b0569fe6c6
           MessageToast.show("Thank you for your order! Sales Order is initiated and you will soon receive an E-mail confirmation.");
         }
       });
