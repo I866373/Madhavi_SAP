@@ -6,5 +6,3 @@ This repository contains the entire source code of this application, so it can b
 
 Before Deploying the .mtar for the UI5 application, please create the instance myworkflowUI5_html5_repo_host of type -html5-app-repo with type as apphost and then deploy the .mtar file.
 
-## Credits
-This project has been generated with 💙 and [easy-ui5](https://github.com/SAP)
